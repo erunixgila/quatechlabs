@@ -1,0 +1,50 @@
+root@Servertomy:~# umask 077
+
+wg genkey | tee /etc/wireguard/private.key \
+| wg pubkey > /etc/wireguard/public.key
+
+cat /etc/wireguard/public.key
+Yq1Xx+nqyXToQARli/m/pY9pOtp4+u9wNGG4doebemI=
+root@Servertomy:~# 
+
+root@Servertomy:~# cat /etc/wireguard/private.key
+GL8RRleBNqUK5o/AE8DXQ1EaIca2pjkHC3udjYVelnE=
+
+root@Servertomy:~# cat /etc/wireguard/
+private.key  public.key   wg0.conf     
+root@Servertomy:~# cat /etc/wireguard/wg0.conf 
+[Interface]
+Address = 10.255.0.254/24
+ListenPort = 51820
+PrivateKey = GL8RRleBNqUK5o/AE8DXQ1EaIca2pjkHC3udjYVelnE=
+
+[Peer]
+PublicKey = YNKH5EA4c7fitbtW6fsOxcOyxIA7Iy8k5II/jy933CI=
+AllowedIPs = 10.255.0.1/32
+root@Servertomy:~# 
+
+
+====================\\
+
+KBR
+
+root@parkir:~# cat /etc/wireguard/public.key
+YNKH5EA4c7fitbtW6fsOxcOyxIA7Iy8k5II/jy933CI=
+root@parkir:~# cat /etc/wireguard/private.key 
+yOd7Su1yit11cawBd/0d7xdeQUHLZxjzy0bKOJiV/0E=
+root@parkir:~# 
+
+root@parkir:~# cat /etc/wireguard/wg0.conf
+[Interface]
+Address = 10.255.0.1/24
+PrivateKey = yOd7Su1yit11cawBd/0d7xdeQUHLZxjzy0bKOJiV/0E=
+
+[Peer]
+PublicKey = ZCrsp04Kre5A2mwF/k0qFEls5FRYaIKeu1qxQo65Jmk=
+Endpoint = 103.196.155.0:51820
+
+AllowedIPs = 10.255.0.254/32
+PersistentKeepalive = 25
+root@parkir:~# 
+
+========
