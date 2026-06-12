@@ -1,0 +1,28 @@
+mkdir -p go-parkir-agent/{cmd/agent,internal/{config,logger,serialio,detector,barrier,audio,event,api},configs,logs}
+
+cd go-parkir-agent
+
+go mod init go-parkir-agent
+
+touch cmd/agent/main.go
+
+touch internal/config/config.go
+touch internal/logger/logger.go
+touch internal/serialio/serial.go
+touch internal/detector/detector.go
+touch internal/barrier/barrier.go
+touch internal/audio/audio.go
+touch internal/event/event.go
+touch internal/api/routes.go
+
+touch configs/config.yaml
+
+
+=======
+go get github.com/gofiber/fiber/v2
+go get go.bug.st/serial
+go get gopkg.in/yaml.v3
+
+==========
+
+kirimkan hasil = find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
